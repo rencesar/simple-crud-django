@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block container %}
+  <div class="d-flex align-items-center justify-content-center w-100 p-3" style="height: 90vh;">
+    <form class="d-block w-100 p-3">
+      {% for field in form %}
+        <div class="form-group">
+          <label for="{{ field.id_for_label }}">{{ field.label }}: </label>
+          {% render_field field class="form-control" %}
+          {% if field.help_text %}
+            <small id="emailHelp" class="form-text text-muted">{{ field.help_text|safe }}</small>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </form>
+  </div>
+{% endblock %}
