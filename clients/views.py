@@ -1,6 +1,7 @@
 from django.views import generic
+from django.urls import reverse_lazy
 
-from .models import Clients
+from .forms import ClientForm
 
 
 class ClientListView(generic.TemplateView):
@@ -8,6 +9,6 @@ class ClientListView(generic.TemplateView):
 
 
 class ClientCreateView(generic.CreateView):
-    model = Clients
+    form_class = ClientForm
     template_name = 'create-clients.html'
-    fields = ['name', 'phone', 'address', 'number', 'city', 'state', 'zipcode',]
+    success_url = reverse_lazy('clients:success-client')
