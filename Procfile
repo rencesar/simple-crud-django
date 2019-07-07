@@ -1,0 +1,1 @@
+web: gunicorn servicenet.wsgi
