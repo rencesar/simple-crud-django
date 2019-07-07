@@ -1,11 +1,11 @@
 from django import forms
 
-from .models import Clients
+from .models import Client
 
 
 class ClientForm(forms.ModelForm):
 
     class Meta:
-        model = Clients
+        model = Client
         fields = ('name', 'phone', 'zipcode', 'address', 'number', 'city', 'state')
 

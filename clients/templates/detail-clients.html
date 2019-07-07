@@ -22,7 +22,8 @@
         <span class="font-weight-bold">CEP</span>: {{ object.zipcode }}
       </div>
     </div>
-    <div class="justify-content-center">
+
+    <div class="d-flex justify-content-center" id="id_map">
       <iframe
         width="500" height="400"
         src="https://maps.google.com/maps?q={{ object.address }} {{ object.number }} {{ object.city }} {{ object.state }}&t=&z=17&ie=UTF8&iwloc=&output=embed"

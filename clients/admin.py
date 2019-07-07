@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from . import models
+
+
+class ClientsAdmin(admin.ModelAdmin):
+    list_display = ('name', 'phone', 'address', 'city', 'state')
+
+
+admin.site.register(models.Client, ClientsAdmin)

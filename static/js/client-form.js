@@ -75,7 +75,7 @@ async function getZipCodeEvent(event) {
   `
 }
 
-function renderMaps(event) {
+function renderMap() {
   address = addressInput.value;
   city = cityInput.value;
   state = stateInput.value;
@@ -98,7 +98,7 @@ function onZipInput(event) {
 
 function onAddressInput(event) {
     clearTimeout(timer);
-    timer = setTimeout(renderMaps(this), 5000);
+    timer = setTimeout(renderMap(this), 5000);
 }
 
 [addressInput, cityInput, stateInput, numberInput].forEach(
