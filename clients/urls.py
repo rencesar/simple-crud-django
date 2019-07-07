@@ -9,5 +9,6 @@ urlpatterns = [
     path('', views.ClientListView.as_view(), name='list-client'),
     path('<uuid:pk>/', views.ClientDetailView.as_view(), name='detail-client'),
     path('edit/<uuid:pk>/', views.ClientUpdateView.as_view(), name='update-client'),
-    path('success/', TemplateView.as_view(template_name='success-client.html'), name='success-client'),
+    path('delete/<uuid:pk>/', views.ClientDeleteView.as_view(), name='delete-client'),
+    path('success/', TemplateView.as_view(template_name='success-clients.html'), name='success-client'),
 ]
