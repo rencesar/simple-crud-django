@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block head %}
+  <link href="{% static 'css/floating-labels.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block container %}
+  <h2>Crie sua conta</h2>
+  <div class="w-100 p-3">
+    <form class="form-signin" method="POST" id="id_form">
+      {% csrf_token %}
+
+      {% include 'forms-errors.html' with form=form %}
+
+      {% for field in form %}
+        <div class="form-label-group">
+          {% include 'forms-fields.html' with field=field %}
+        </div>
+      {% endfor %}
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+{% endblock %}

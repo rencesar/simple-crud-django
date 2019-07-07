@@ -3,23 +3,21 @@
 {% load static %}
 
 {% block container %}
-    <h2>{{ operation }} um cliente</h2>
-    <div class="w-100 p-3">
-      <form method="POST" id="id_form">
-        {% csrf_token %}
-        {% for field in form %}
-          <div class="form-group">
-            <label for="{{ field.id_for_label }}">{{ field.label }}: </label>
-            {% render_field field class="form-control" %}
-            {% if field.help_text %}
-              <small id="emailHelp" class="form-text text-muted">{{ field.help_text|safe }}</small>
-            {% endif %}
-          </div>
-        {% endfor %}
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-      <div class="d-flex justify-content-center" id="id_map"></div>
-    </div>
+  <h2>{{ operation }} um cliente</h2>
+  <div class="w-100 p-3">
+    <form method="POST" id="id_form" class="form-signin">
+      {% csrf_token %}
+      {% include 'forms-errors.html' with form=form %}
+
+      {% for field in form %}
+        <div class="form-label-group">
+          {% include 'forms-fields.html' with field=field %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="d-flex justify-content-center" id="id_map"></div>
+  </div>
 {% endblock %}
 
 {% block script %}
