@@ -3,25 +3,21 @@
 {% load static %}
 
 {% block container %}
-  <div class="d-flex align-items-center justify-content-center w-100 p-3 flex-column">
-    <div class="w-100 p-3">
-      <h3>Adicione um cliente</h3>
-      <form method="POST" id="id_form">
-        {% csrf_token %}
-        {% for field in form %}
-          <div class="form-group">
-            <label for="{{ field.id_for_label }}">{{ field.label }}: </label>
-            {% render_field field class="form-control" %}
-            {% if field.help_text %}
-              <small id="emailHelp" class="form-text text-muted">{{ field.help_text|safe }}</small>
-            {% endif %}
-          </div>
-        {% endfor %}
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
+    <h3>Adicione um cliente</h3>
+    <form method="POST" id="id_form">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="form-group">
+          <label for="{{ field.id_for_label }}">{{ field.label }}: </label>
+          {% render_field field class="form-control" %}
+          {% if field.help_text %}
+            <small id="emailHelp" class="form-text text-muted">{{ field.help_text|safe }}</small>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
     <div id="id_map"></div>
-  </div>
 {% endblock %}
 
 {% block script %}
