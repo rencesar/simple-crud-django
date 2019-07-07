@@ -20,7 +20,7 @@
       <a href="{% url 'authentication:login' %}">Entrar</a>
       <a class="ml-3" href="{% url 'authentication:signin' %}">Cadastrar</a>
     {% else %}
-      <span>{{ user.name }}</span>
+      <span>{{ user_name_bound }}</span>
       <a class="ml-3" href="{% url 'authentication:logout' %}">Sair</a>
     {% endif %}
   </div>
