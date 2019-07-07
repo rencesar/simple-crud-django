@@ -23,5 +23,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html'), name='home'),
-    path('clients/', include('clients.urls', namespace='clients'))
+    path('', include('authentication.urls', namespace='authentication')),
+    path('', include('social_django.urls', namespace='social')),
+    path('clients/', include('clients.urls', namespace='clients')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

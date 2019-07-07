@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block head %}
+  <link href="{% static 'css/floating-labels.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block container %}
+  <form class="form-signin" method="POST">
+    <div class="text-center mb-4">
+      <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+      <p>Preencha seus dados para fazer login e ser capaz de fazer alterações</p>
+    </div>
+
+    <div class="form-label-group">
+      {% render_field form.username class="form-control" placeholder="Email address" required="" autofocus="" %}
+      <label for="{{ form.username.id_for_label }}">Email address</label>
+    </div>
+
+    <div class="form-label-group">
+      {% render_field form.password class="form-control" placeholder="Password" required="" %}
+      <label for="{{ form.password.id_for_label }}">Password</label>
+    </div>
+    <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
+
+    <div class="d-flex flex-row justify-content-between mt-4">
+      <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-primary" style="width: 40%">Acessar com <i class="fab fa-facebook-square ml-1"></i></a>
+      <a href="/create" class="btn btn-primary" style="width: 40%">Criar conta</a>
+    </div>
+
+  </form>
+{% endblock %}
