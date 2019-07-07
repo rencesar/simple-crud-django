@@ -6,7 +6,7 @@
     {% for object in object_list %}
       <div class="d-flex list-group-item list-group-item-action flex-row justify-content-between">
         <div>
-          <a href="alou" class="text-dark">
+          <a href="{% url 'clients:detail-client' object.pk %}" class="text-dark">
             <h5 class="mb-1">{{ object.name }}</h5>
             <p class="mb-1">
               {{ object.address }}, {{ object.number }}, {{ object.city }}

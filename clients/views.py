@@ -14,3 +14,9 @@ class ClientCreateView(generic.CreateView):
     form_class = ClientForm
     template_name = 'create-clients.html'
     success_url = reverse_lazy('clients:success-client')
+
+
+class ClientDetailView(generic.DetailView):
+    model = Clients
+    template_name = 'detail-clients.html'
+    success_url = reverse_lazy('clients:success-client')
