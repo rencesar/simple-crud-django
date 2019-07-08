@@ -12,6 +12,7 @@ from .models import Client
 class ClientListView(generic.ListView):
     template_name = 'list-clients.html'
     model = Client
+    paginate_by = 20
 
 
 @method_decorator(login_required, name='dispatch')

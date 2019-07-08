@@ -2,6 +2,16 @@
 {% load widget_tweaks %}
 {% load static %}
 
+{% block head %}
+  <style>
+    @media (max-width: 575.98px) {
+      .facebook-access {
+        display: none;
+      }
+    }
+  </style>
+{% endblock %}
+
 
 {% block container %}
   <form class="form-signin" method="POST">
@@ -23,7 +33,7 @@
     <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
 
     <div class="d-flex flex-row justify-content-between mt-4">
-      <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-primary" style="width: 40%">Acessar com <i class="fab fa-facebook-square ml-1"></i></a>
+      <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-primary" style="width: 40%"><span class="facebook-access">Acessar com </span><i class="fab fa-facebook-square ml-1"></i></a>
       <a href="{% url 'authentication:signin' %}" class="btn btn-primary" style="width: 40%">Criar conta</a>
     </div>
 
